@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hallow Burger</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <section id="screen-home">
+            <div class="logo-circle">
+                <img src="Logo Hamburgueria Moderno - 1.png" alt="Logo Hallow Burger" class="logo-img">
+            </div>
+            <div class="arrow-down">↓</div>
+            <button class="btn-glow" onclick="goToMenu()">FAÇA SEU PEDIDO</button>
+        </section>
+
+        <section id="screen-menu" style="display: none;">
+            <div class="menu-header">
+                <div class="logo-mini">
+                    <img src="Logo Hamburgueria Moderno - 1.png" alt="Mini Logo" class="logo-img">
+                </div>
+                <h1 class="menu-title">CARDAPIO</h1>
+            </div>
+            
+            <div class="orange-bar-divider"></div>
+
+            <div class="menu-grid">
+                <div class="product-card">
+                    <img src="abobora.jpg" class="product-img">
+                    <div class="price-tag">
+                        <div class="product-name">ABÓBORA BURGUER</div>
+                        <div class="product-price">R$ 15,00</div>
+                    </div>
+                    <div class="controls">
+                        <button class="btn-qty" onclick="adicionar('abobora')">+</button>
+                        <span>/</span> <span id="qty-abobora">0</span> <span>/</span>
+                        <button class="btn-qty" onclick="remover('abobora')">-</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="carang.jpg" class="product-img">
+                    <div class="price-tag">
+                        <div class="product-name">CARANG BURGUER</div>
+                        <div class="product-price">R$ 20,00</div>
+                    </div>
+                    <div class="controls">
+                        <button class="btn-qty" onclick="adicionar('carang')">+</button>
+                        <span>/</span> <span id="qty-carang">0</span> <span>/</span>
+                        <button class="btn-qty" onclick="remover('carang')">-</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="monster.jpg" class="product-img">
+                    <div class="price-tag">
+                        <div class="product-name">MONSTER BURGUER</div>
+                        <div class="product-price">R$ 25,00</div>
+                    </div>
+                    <div class="controls">
+                        <button class="btn-qty" onclick="adicionar('monster')">+</button>
+                        <span>/</span> <span id="qty-monster">0</span> <span>/</span>
+                        <button class="btn-qty" onclick="remover('monster')">-</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="download (1).jpg" class="product-img">
+                    <div class="price-tag">
+                        <div class="product-name">COCA COLA</div>
+                        <div class="product-price">R$ 5,00</div>
+                    </div>
+                    <div class="controls">
+                        <button class="btn-qty" onclick="adicionar('coca')">+</button>
+                        <span>/</span> <span id="qty-coca">0</span> <span>/</span>
+                        <button class="btn-qty" onclick="remover('coca')">-</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary-container">
+                <h2 class="summary-title">SEU PEDIDO</h2>
+                <div id="order-items-list" class="summary-box">
+                    <p class="empty-msg">Nenhum item selecionado</p>
+                </div>
+            </div>
+
+            <div class="input-container">
+                <label>CUPOM DE DESCONTO</label>
+                <input type="text" id="coupon-input" class="orange-input" placeholder="Digite seu cupom" onchange="aplicarCupom()">
+            </div>
+
+            <div class="total-bar">TOTAL: R$ <span id="valor-total">0,00</span></div>
+
+            <div class="input-container">
+                <label>FORMA DE PAGAMENTO</label>
+                <select id="pagamento" class="orange-input">
+                    <option value="" disabled selected>Selecione...</option>
+                    <option value="Pix">Pix</option>
+                    <option value="Cartão">Cartão</option>
+                    <option value="Dinheiro">Dinheiro</option>
+                </select>
+            </div>
+
+            <div class="input-container">
+                <label>ENDEREÇO</label>
+                <input type="text" id="endereco" class="orange-input" placeholder="Rua e número">
+            </div>
+
+            <div class="input-container">
+                <label>OBSERVAÇÃO</label>
+                <textarea id="observacao" class="orange-input area-obs" placeholder="Ex: Sem cebola..."></textarea>
+            </div>
+
+            <button class="btn-check" onclick="finishOrder()">
+                <div class="check-icon"></div>
+            </button>
+        </section>
+
+        <section id="screen-thanks" style="display: none;">
+            <div class="thanks-content">
+                <h1 class="thanks-title">Pedido Enviado!</h1>
+                <p class="thanks-subtitle">Estamos a abrir o seu WhatsApp...</p>
+                <p class="thanks-subtitle">O site reiniciará em <span id="timer">5</span>...</p>
+                <div class="pumpkin-icon">🎃</div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
